@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using DejandoHuellas.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DejandoHuellas.Controllers
 {
@@ -15,16 +16,17 @@ namespace DejandoHuellas.Controllers
             return View();
         }
 
+        [Authorize(Roles="Administrator")]
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "Dejando Huellas.";
 
             return View();
         }
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "Detalles de Contacto.";
 
             return View();
         }
